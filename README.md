@@ -1,24 +1,31 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```
+    Post:
+    /api/v1/users
+        {
+            username
+            password
+        }
+    will create user
+```
 
-Things you may want to cover:
+```
+    Post:
+    /api/v1/login
+        {
+            username
+            password
+        }
+    will logIn user and generate json web token
+```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+    Get
+    /api/v1/auto_login
+    header:
+    {
+        Authorization: Beare <token>
+    }
+    simply check
+```
