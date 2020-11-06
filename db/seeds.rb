@@ -8,6 +8,6 @@
 # 
 
 User.create({
-  title: 'testowy uzytjownik',
-  body: 'opis uzytowownika',
+  username: 'test123',
+  password: 'testtest',
 })
