@@ -27,7 +27,7 @@ module Api
       end
 
       def auto_login
-        render json: {data: "Logged it!"} 
+        render json: {greetings: "Hello " + @user.username} 
       end
 
       private
