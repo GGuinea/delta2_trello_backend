@@ -1,24 +1,48 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##Authorization not needed
+```
+    Post:
+    /api/v1/users
+        {
+            email
+            username
+            password
+        }
+    will create user
+```
 
-Things you may want to cover:
+```
+    Post:
+    /api/v1/login
+        {
+            username
+            password
+        }
+    will logIn user and generate json web token
+```
 
-* Ruby version
+##Authorization needed
+```
+header:
+{
+    Authorization: Beare <token>
+}
+```
 
-* System dependencies
+###Users
+```
+    Get /api/v1/auto_login
+    simply check
+    
+    Get /api/v1/all_boards
+    will produce json with all boards, where users has access
+```
+###Boards
+```
+    Get /api/v1/boards
+    will give you all stored boards
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+    Get /api/v1/get_users/<board-id>
+    will produce json with users which has access to board
+```
