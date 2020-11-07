@@ -19,6 +19,14 @@ module Api
       end
     end
 
+    #GET /get_usesrs/<board-id>
+    def get_users
+      @board = Board.find_by(id: params[:id])
+      @users = @board.users.select("id", "username")
+
+      render json: @users
+    end
+
     def board_params
       params.permit(
         :name

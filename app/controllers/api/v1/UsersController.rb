@@ -1,7 +1,7 @@
 module Api
   module V1
     class UsersController < ApplicationController
-      before_action :authorized, only:[:auto_login]
+      before_action :authorized, only:[:auto_login, :all_boards]
 
       #Register
       def create
@@ -28,6 +28,11 @@ module Api
 
       def auto_login
         render json: {greetings: "Hello " + @user.username} 
+      end
+
+      def all_boards
+        @boards = @user.boards
+        render json: {baords: @boards}
       end
 
       private

@@ -24,18 +24,25 @@
 
 ##Authorization needed
 ```
-    Get
-    /api/v1/auto_login
-    header:
-    {
-        Authorization: Beare <token>
-    }
-    simply check
+header:
+{
+    Authorization: Beare <token>
+}
 ```
 
+###Users
 ```
-    Get
-    /api/v1/boards
+    Get /api/v1/auto_login
+    simply check
     
+    Get /api/v1/all_boards
+    will produce json with all boards, where users has access
+```
+###Boards
+```
+    Get /api/v1/boards
     will give you all stored boards
+
+    Get /api/v1/get_users/<board-id>
+    will produce json with users which has access to board
 ```

@@ -5,8 +5,10 @@ Rails.application.routes.draw do
       resources :users, only: [:create]
       post "/login", to: "users#login"
       get "/auto_login", to: "users#auto_login"
+      get "/all_boards", to: "users#all_boards"
       resources :boards 
       get "/boards", to: "boards#index"
+      get "/get_users/:id", to: "boards#get_users"
       post "/boards", to: "boards#create"
     end
   end
