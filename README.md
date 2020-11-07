@@ -1,6 +1,6 @@
 # README
 
-##Authorization not needed
+## Authorization not needed
 ```
     Post:
     /api/v1/users
