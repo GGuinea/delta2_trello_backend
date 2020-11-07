@@ -22,7 +22,7 @@
     will logIn user and generate json web token
 ```
 
-##Authorization needed
+## Authorization needed
 ```
 header:
 {
@@ -30,18 +30,18 @@ header:
 }
 ```
 
-###Users
+### Users
 ```
     Get /api/v1/auto_login
-    simply check
+    simply check - will be removed
     
     Get /api/v1/all_boards
     will produce json with all boards, where users has access
 ```
-###Boards
+### Boards
 ```
     Get /api/v1/boards
-    will give you all stored boards
+    will give you all stored boards - will be removed
 
     Get /api/v1/get_users/<board-id>
     will produce json with users which has access to board
