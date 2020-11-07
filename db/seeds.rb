@@ -11,3 +11,7 @@ User.create({
   username: 'test123',
   password: 'testtest',
 })
+
+Board.create({
+  name: 'testowa',
+})
