@@ -1,5 +1,5 @@
 class WelcomeMailer < ApplicationMailer
-  def sample_email(user)
+  def welcome_email(user)
     @user = user
     mail(to: @user.email, subject: "Samile Email")
   end

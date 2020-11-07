@@ -19,6 +19,7 @@ module Api
         @user = User.find_by(username: params[:username])
 
         if @user && @user.password == params[:password]
+          WelcomeMailer.welcome_email(@user).deliver
           token = encode_token({user_id: @user.id})
           render json: {user: @user, token: token}
         else
