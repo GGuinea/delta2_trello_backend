@@ -26,7 +26,7 @@
 ```
 header:
 {
-    Authorization: Beare <token>
+    Authorization: Bearer <token>
 }
 ```
 
