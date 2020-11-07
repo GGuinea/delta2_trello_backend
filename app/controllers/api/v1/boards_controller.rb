@@ -29,7 +29,8 @@ module Api
 
     def board_params
       params.permit(
-        :name
+        :name,
+        :description
       )
     end
 

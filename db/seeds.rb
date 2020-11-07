@@ -7,11 +7,37 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # 
 
-User.create({
-  username: 'test123',
+marek = User.create({
+  username: 'Marek',
   password: 'testtest',
-})
+  email: "marek@email.pl",
+},)
+jarek = User.create({
+  username: 'Jarek',
+  password: 'testtest',
+  email: "jare@email.pl",
+},)
+marta = User.create({
+  username: 'Marta',
+  password: 'testtest',
+  email: "marta@email.pl",
+},)
 
-Board.create({
-  name: 'testowa',
-})
+zakupy = Board.create({
+  name: 'Zakupy',
+  descripton: "To jest tablica z zakupami"
+},)
+przyroda = Board.create({
+  name: 'Przyroda',
+  descripton: "To jest tablica dla przedmiotu przyroda"
+},) 
+taski = Board.create({
+  name: 'Taski',
+  descripton: "To jest tablica zawierajaca taski projektowe"
+},)
+
+marek.boards << taski
+marek.boards << przyroda 
+marta.boards << zakupy
+
+
