@@ -33,7 +33,7 @@ module Api
 
       def all_boards
         @boards = @user.boards
-        render json: {baords: @boards}
+        render json: {boards: @boards}
       end
 
       private
