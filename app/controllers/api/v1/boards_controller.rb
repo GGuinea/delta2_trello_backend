@@ -11,7 +11,8 @@ module Api
 
     #POST /api/v1/boards
     def create
-      @board = Board.new(board_params) 
+      #@board = Board.new(board_params)
+      @board = @user.boards.create(board_params)
       if @board.save
         render json: @board, status: :created
       else
