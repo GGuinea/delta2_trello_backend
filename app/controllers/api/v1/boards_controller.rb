@@ -38,6 +38,15 @@ module Api
       end
     end
 
+    def remove_board
+      @board = Board.find_by(id: params[:id])
+      if @board.destroy
+        render json: {status: "removed"}, status: :ok
+      else
+        render json: @board.errors.full_messages, status: :not_found
+      end
+    end
+
     def change_name_params
       params.permit(
         :name

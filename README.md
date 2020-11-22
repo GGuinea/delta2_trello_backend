@@ -53,4 +53,7 @@ header:
         }
     produce:
         updated board
+
+    DELETE /api/v1/board/<board-id>
+        will produce status of migration
 ```

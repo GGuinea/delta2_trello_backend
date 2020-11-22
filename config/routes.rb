@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get "/get_users/:id", to: "boards#get_users"
       post "/boards", to: "boards#create"
       patch "/board/:id", to: "boards#change_name"
+      delete "/board/:id", to: "boards#remove_board"
     end
   end
 end
