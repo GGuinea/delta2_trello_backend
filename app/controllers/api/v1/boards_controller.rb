@@ -25,7 +25,7 @@ module Api
       @board = Board.find_by(id: params[:id])
       @users = @board.users.select("id", "username")
 
-      render json: @users
+      render json: @users, status: :ok
     end
 
     def board_params
