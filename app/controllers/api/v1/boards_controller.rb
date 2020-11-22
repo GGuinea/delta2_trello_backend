@@ -47,6 +47,23 @@ module Api
       end
     end
 
+    def add_member
+      @board = Board.find_by(id: params[:id])
+      @newUser = User.find_by(add_member_by_email_params)
+      if @newUser
+        @member = Member.create(board_id: @board.id, user_id: @newUser.id)
+        render json: @member, status: :ok
+      else
+        render json: @newUser.errors_full_message, status: :not_found
+      end
+    end
+
+    def add_member_by_email_params 
+      params.permit(
+        :email
+      )
+    end
+
     def change_name_params
       params.permit(
         :name
