@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get "/boards", to: "boards#index"
       get "/get_users/:id", to: "boards#get_users"
       post "/boards", to: "boards#create"
+      patch "/board/:id", to: "boards#change_name"
     end
   end
 end
