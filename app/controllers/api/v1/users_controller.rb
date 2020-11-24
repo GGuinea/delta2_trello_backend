@@ -7,7 +7,6 @@ module Api
       def create
         @user = User.create(user_params)
         if @user.valid?
-          token = encode_token({user_id: @user.id})
           WelcomeMailer.welcome_email(@user).deliver
           render json: {userId: @user.id, status: "Registered"}, status: :ok
         else
@@ -20,7 +19,7 @@ module Api
         @user = User.find_by(username: params[:username])
 
         if @user && @user.password == params[:password]
-          token = encode_token({user_id: @user.id})
+          token = encode_token({user_id: @user.id}, Time.now.to_i + 3600) # 60 min
           render json: {userId: @user.id, token: token}, status: :ok
         else
           render json: {error: "Invalid username or password"}, status: :not_found

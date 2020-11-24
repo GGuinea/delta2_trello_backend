@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::API
         before_action :authorized
 
-        def encode_token(payload)
+        def encode_token(payload, expiration)
+          payload[:exp] = expiration
           JWT.encode(payload, 's3cr3t')
         end
 
