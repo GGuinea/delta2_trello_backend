@@ -57,6 +57,15 @@ module Api
         render json: @newUser.errors_full_message, status: :not_found
       end
     end
+    
+    def get_board
+      @board = Board.find_by(id: params[:id])
+      if @board
+        render json: @board, status: :ok
+      else
+        render :nothing => true, status: :not_found 
+      end
+    end
 
     def add_member_by_email_params 
       params.permit(

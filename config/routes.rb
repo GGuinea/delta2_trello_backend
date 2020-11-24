@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       get "/all_boards", to: "users#all_boards"
       resources :boards 
       get "/boards", to: "boards#index"
+      get "/board/:id", to: "boards#get_board"
       get "/get_users/:id", to: "boards#get_users"
       post "/boards", to: "boards#create"
       patch "/board/:id", to: "boards#update_board"
