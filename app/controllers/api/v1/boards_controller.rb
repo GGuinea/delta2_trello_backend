@@ -29,9 +29,9 @@ module Api
     end
 
     #PATCH /api/v1/board/<board-id>
-    def change_name
+    def update_board 
       @board = Board.find_by(id: params[:id])
-      if @board.update(change_name_params)
+      if @board.update(update_params)
         render json: @board, status: :accepted
       else
         render json: @board.errors.full_messages, status: :not_found
@@ -64,9 +64,10 @@ module Api
       )
     end
 
-    def change_name_params
+    def update_board 
       params.permit(
         :name
+        :description
       )
     end
 

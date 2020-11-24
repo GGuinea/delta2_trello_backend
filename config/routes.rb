@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       get "/boards", to: "boards#index"
       get "/get_users/:id", to: "boards#get_users"
       post "/boards", to: "boards#create"
-      patch "/board/:id", to: "boards#change_name"
+      patch "/board/:id", to: "boards#update_board"
       patch "/board/add_member/:id", to: "boards#add_member"
       delete "/board/:id", to: "boards#remove_board"
     end

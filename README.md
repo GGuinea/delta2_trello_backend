@@ -50,6 +50,8 @@ header:
     consume:
         {
             'name': <new-name>
+            or/and
+            'description': <description>
         }
     produce:
         updated board
