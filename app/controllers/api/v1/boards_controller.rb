@@ -31,7 +31,7 @@ module Api
     #PATCH /api/v1/board/<board-id>
     def update_board 
       @board = Board.find_by(id: params[:id])
-      if @board.update(update_params)
+      if @board.update(board_params)
         render json: @board, status: :accepted
       else
         render json: @board.errors.full_messages, status: :not_found
@@ -61,13 +61,6 @@ module Api
     def add_member_by_email_params 
       params.permit(
         :email
-      )
-    end
-
-    def update_board 
-      params.permit(
-        :name
-        :description
       )
     end
 
