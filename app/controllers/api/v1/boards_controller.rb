@@ -49,7 +49,7 @@ module Api
 
     def add_member
       @board = Board.find_by(id: params[:id])
-      @newUser = User.find_by(add_member_by_email_params)
+      @newUser = User.find_by(member_by_email_params)
       if @newUser
         @member = Member.create(board_id: @board.id, user_id: @newUser.id)
         render json: @member, status: :ok
@@ -57,7 +57,18 @@ module Api
         render json: @newUser.errors_full_message, status: :not_found
       end
     end
-    
+
+    def remove_member
+      @board = Board.find_by(id: params[:id])
+      @newUser = User.find_by(member_by_email_params)
+      if @board && @newUser
+        @board.users.delete(@newUser)
+        render :nothing => true, status: :ok
+      else
+        render :nothing => true, status: :not_found
+      end
+    end
+
     def get_board
       @board = Board.find_by(id: params[:id])
       if @board
@@ -67,7 +78,7 @@ module Api
       end
     end
 
-    def add_member_by_email_params 
+    def member_by_email_params
       params.permit(
         :email
       )

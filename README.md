@@ -62,7 +62,14 @@ header:
     DELETE /api/v1/board/<board-id>
         will produce status of migration
 
-    PATCH /api/v1/board/add_member/<board-id>
+    PATCH /api/v1/board/member/<board-id>
+    consume:
+        {
+            'email': <new member email>
+        }
+    produce:
+
+    DELETE /api/v1/board/member/<board-id>
     consume:
         {
             'email': <new member email>
