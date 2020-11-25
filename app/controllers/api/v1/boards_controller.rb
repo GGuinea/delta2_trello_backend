@@ -50,7 +50,14 @@ module Api
     def add_member
       @board = Board.find_by(id: params[:id])
       @newUser = User.find_by(member_by_email_params)
-      if @newUser
+      @exisitngMember = Member.find_by(board_id: @board.id, user_id: @newUser.id)
+
+      if @exisitngMember
+        render :nothing => true, status: :conflict
+        return
+      end
+
+      if @newUser && @board
         @member = Member.create(board_id: @board.id, user_id: @newUser.id)
         render json: @member, status: :ok
       else
