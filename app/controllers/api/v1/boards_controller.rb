@@ -66,8 +66,8 @@ module Api
     end
 
     def remove_member
-      @board = Board.find_by(id: params[:id])
-      @newUser = User.find_by(member_by_email_params)
+      @board = Board.find_by(id: params[:board_id])
+      @newUser = User.find_by(id: params[:user_id])
       if @board && @newUser
         @board.users.delete(@newUser)
         render :nothing => true, status: :ok

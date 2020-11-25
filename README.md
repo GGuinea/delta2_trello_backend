@@ -69,10 +69,6 @@ header:
         }
     produce:
 
-    DELETE /api/v1/board/member/<board-id>
-    consume:
-        {
-            'email': <new member email>
-        }
+    DELETE /api/v1/board/member/<board-id>/<user-id>
     produce:
 ```
