@@ -65,6 +65,25 @@ module Api
       end
     end
 
+    def add_member_by_id
+      @board = Board.find_by(id: params[:board_id])
+      @newUser = User.find_by(id: params[:user_id])
+      @exisitngMember = Member.find_by(board_id: @board.id, user_id: @newUser.id)
+
+      if @exisitngMember
+        render :nothing => true, status: :conflict
+        return
+      end
+
+      if @newUser && @board
+        @member = Member.create(board_id: @board.id, user_id: @newUser.id)
+        render json: @member, status: :ok
+      else
+        render json: @newUser.errors_full_message, status: :not_found
+      end
+      
+    end
+
     def remove_member
       @board = Board.find_by(id: params[:board_id])
       @newUser = User.find_by(id: params[:user_id])

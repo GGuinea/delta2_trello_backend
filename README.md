@@ -70,6 +70,9 @@ header:
         }
     produce:
 
+    PATCH /api/v1/board/member/<board-id>/<user_id>
+    added user to board by id
+
     DELETE /api/v1/board/member/<board-id>/<user-id>
     produce:
 ```

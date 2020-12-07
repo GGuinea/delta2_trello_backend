@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       post "/boards", to: "boards#create"
       patch "/board/:id", to: "boards#update_board"
       patch "/board/member/:id", to: "boards#add_member"
+      patch "/board/member/:board_id/:user_id", to: "boards#add_member_by_id"
       delete "/board/member/:board_id/:user_id", to: "boards#remove_member"
       delete "/board/:id", to: "boards#remove_board"
       resources :columns
