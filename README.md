@@ -36,7 +36,8 @@ header:
     simply check - will be removed
     
     Get /api/v1/all_boards
-    will produce json with all boards, where users has access
+    will produce json with all boards, where users has access 
+    with other users that have acces to the board
 ```
 ### Boards
 ```

@@ -32,7 +32,11 @@ module Api
 
       def all_boards
         @boards = @user.boards
-        render json: {boards: @boards}, status: :ok
+        render json: @boards.as_json(include: {
+          users: {
+            only: [:id, :username, :email]
+          }
+        }), status: :ok
       end
 
       private
