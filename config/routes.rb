@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       patch "/column/:id", to: "columns#update_column"
       delete "/column/:id", to: "columns#remove_column"
       resources :cards
+      get ":column_id/cards", to: "cards#get_cards_for_column"
       post ":column_id/card", to: "cards#add_to_board"
       patch "/card/:id", to: "cards#update_card"
       delete "/card/:id", to: "cards#remove_card"

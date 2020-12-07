@@ -32,6 +32,12 @@ module Api
       end
     end
 
+    def get_cards_for_column
+      @column  = Column.find_by(id: params[:column_id])
+      @cards = @column.cards
+      render json: @cards, status: :ok
+    end
+
     def card_params 
       params.permit(
         :name,

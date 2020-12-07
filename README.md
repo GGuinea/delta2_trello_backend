@@ -95,8 +95,11 @@ header:
         will remove column, and produce status
 ```
 
-### Columns
+### Cards 
 ```
+    Get /api/v1/<column_id>/cards
+        will produce card for particular column 
+
     Post /api/v1/<column_id>/card
     consume: 
         {
