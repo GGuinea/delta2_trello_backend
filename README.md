@@ -91,6 +91,28 @@ header:
             'name': <column_name>
         }
 
-    DELETE /api/v1/column/<board-id>
+    DELETE /api/v1/column/<column_id>
         will remove column, and produce status
+```
+
+### Columns
+```
+    Post /api/v1/<column_id>/card
+    consume: 
+        {
+            'name': <column_name>,
+            'description': <description>
+            'deadline': <YYYY-MM-DD>
+        }
+
+    PATCH /api/v1/card/<card_id>
+    consume:
+        {
+            'name': <column_name> or/and
+            'description': <column_name> or/and
+            'deadline': <column_name>
+        }
+
+    DELETE /api/v1/card/<card_id>
+        will remove card, and produce status
 ```
