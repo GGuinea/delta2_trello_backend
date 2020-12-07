@@ -47,7 +47,7 @@ header:
     will produce json with users which has access to board
 
     Get /api/v1/board/<board-id>
-    will produce details about board
+    will produce details about board with users
 
     PATCH /api/v1/board/<board-id>
     consume:

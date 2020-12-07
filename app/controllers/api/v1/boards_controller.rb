@@ -78,8 +78,11 @@ module Api
 
     def get_board
       @board = Board.find_by(id: params[:id])
+
       if @board
-        render json: @board, status: :ok
+        render json: @board.as_json(include: {users: {
+          only: [:id, :username, :email]
+        }}), status: :ok
       else
         render :nothing => true, status: :not_found 
       end
