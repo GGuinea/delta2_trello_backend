@@ -21,6 +21,10 @@ Rails.application.routes.draw do
       post "/:board_id/column", to: "columns#create"
       patch "/column/:id", to: "columns#update_column"
       delete "/column/:id", to: "columns#remove_column"
+      resources :cards
+      post ":column_id/card", to: "cards#add_to_board"
+      patch "/card/:id", to: "cards#update_card"
+      delete "/card/:id", to: "cards#remove_card"
     end
   end
 end
