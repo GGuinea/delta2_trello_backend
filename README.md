@@ -72,3 +72,24 @@ header:
     DELETE /api/v1/board/member/<board-id>/<user-id>
     produce:
 ```
+
+### Columns
+```
+    Get /api/v1/<board_id>/colums
+    columns for board
+
+    Post /api/v1/<board_id>/column
+    consume: 
+        {
+            'name': <column_name>
+        }
+
+    PATCH /api/v1/column/<column_id>
+    consume:
+        {
+            'name': <column_name>
+        }
+
+    DELETE /api/v1/column/<board-id>
+        will remove column, and produce status
+```

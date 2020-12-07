@@ -33,6 +33,15 @@ module Api
       end
     end
 
+    def remove_column
+      @column = Column.find_by(id: params[:id])
+      if @column.destroy
+        render json: {status: "removed"}, status: :ok
+      else
+        render json: @column.errors.full_messages, status: :not_found
+      end
+    end
+
     def column_params
       params.permit(
         :name,

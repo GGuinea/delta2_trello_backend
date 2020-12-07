@@ -18,8 +18,9 @@ Rails.application.routes.draw do
       resources :columns
       get "/board/columns", to: "columns#index"
       get "/:board_id/columns", to: "columns#get_columns_for_board"
-      post "/:board_id/columns", to: "columns#create"
+      post "/:board_id/column", to: "columns#create"
       patch "/column/:id", to: "columns#update_column"
+      delete "/column/:id", to: "columns#remove_column"
     end
   end
 end
