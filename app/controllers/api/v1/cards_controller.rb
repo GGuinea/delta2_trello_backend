@@ -16,12 +16,11 @@ module Api
 
     def update_card 
       @card = Card.find_by(id: params[:id]) 
-      if @card.update_attributes(card_params)
+      if @card.update(card_params)
         render json: @card, status: :accepted
       else
-        render json: @card.errors_full_message, statu: :not_found
+        render :nothing => true, status: :not_found
       end
-    end
 
     def remove_card 
       @card = Card.find_by(id: params[:id])
@@ -41,6 +40,7 @@ module Api
     def card_params 
       params.permit(
         :name,
+        :column_id,
         :description,
         :deadline
       )
