@@ -115,6 +115,7 @@ header:
     consume:
         {
             'name': <column_name> or/and
+            'column_id': <new_column_id> or/and
             'description': <column_name> or/and
             'deadline': <column_name>
         }
