@@ -21,6 +21,7 @@ module Api
       else
         render :nothing => true, status: :not_found
       end
+    end
 
     def remove_card 
       @card = Card.find_by(id: params[:id])
