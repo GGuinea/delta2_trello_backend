@@ -18,7 +18,7 @@ module Api
       def login
         @user = User.find_by(username: params[:username])
 
-        if @user && @user.password == params[:password]
+        if @user && @user.authenticate(params[:password])
           token = encode_token({user_id: @user.id}, Time.now.to_i + 3600) # 60 min
           render json: {userId: @user.id, token: token}, status: :ok
         else

@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_secure_password
   validates :username, presence: true, uniqueness: true, length: { in: 5..20, 
           wrong_length: "{count} characters is not allowed for username" }
   validates :email, presence: true, uniqueness: true
