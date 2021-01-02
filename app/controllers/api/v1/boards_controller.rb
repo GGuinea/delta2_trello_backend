@@ -101,6 +101,9 @@ module Api
       if @board
         render json: @board.as_json(include: {users: {
           only: [:id, :username, :email]
+        }},
+        include: {labels: {
+          only: [:id, :name, :color_id, :labelable_id]
         }}), status: :ok
       else
         render :nothing => true, status: :not_found 

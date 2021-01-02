@@ -1,0 +1,2 @@
+class CardsLabel < ApplicationRecord
+end

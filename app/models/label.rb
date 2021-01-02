@@ -1,4 +1,4 @@
 class Label < ApplicationRecord
   belongs_to :board
-  belongs_to :card
+  has_and_belongs_to_many :cards, :join_table => :cards_labels
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_02_150103) do
+ActiveRecord::Schema.define(version: 2021_01_02_223316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(version: 2021_01_02_150103) do
     t.index ["column_id"], name: "index_cards_on_column_id"
   end
 
+  create_table "cards_labels", force: :cascade do |t|
+    t.bigint "card_id"
+    t.bigint "label_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["card_id"], name: "index_cards_labels_on_card_id"
+    t.index ["label_id"], name: "index_cards_labels_on_label_id"
+  end
+
   create_table "columns", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -45,6 +54,8 @@ ActiveRecord::Schema.define(version: 2021_01_02_150103) do
     t.integer "color_id", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "board_id", null: false
+    t.index ["board_id"], name: "index_labels_on_board_id"
   end
 
   create_table "members", id: false, force: :cascade do |t|
@@ -66,4 +77,5 @@ ActiveRecord::Schema.define(version: 2021_01_02_150103) do
   end
 
   add_foreign_key "cards", "columns"
+  add_foreign_key "labels", "boards"
 end
