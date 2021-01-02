@@ -27,6 +27,10 @@ Rails.application.routes.draw do
       post ":column_id/card", to: "cards#add_to_board"
       patch "/card/:id", to: "cards#update_card"
       delete "/card/:id", to: "cards#remove_card"
+      resources :labels
+      post "/:board_id/label", to: "labels#create"
+      delete "/label/:id", to: "labels#remove_label_from_board"
+      patch "/label/:id", to: "labels#update_label"
     end
   end
 end
