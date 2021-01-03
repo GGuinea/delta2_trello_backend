@@ -56,6 +56,7 @@ header:
             'name': <new-name>
             or/and
             'description': <description>
+            'backgroud_id': <int:backgroud_id>
         }
     produce:
         updated board
@@ -122,4 +123,64 @@ header:
 
     DELETE /api/v1/card/<card_id>
         will remove card, and produce status
+```
+### Labels
+```
+post /api/v1/<board_id>/label
+    consume: 
+        {
+            'name': <string:column_name>,
+            'color_id': <int:color_id>
+        }
+    will create label for whole board
+
+post /api/v1/<card_id>/<label_id>
+    will assign label to card
+
+delete /api/v1/label/<label_id>
+    will remove label from board
+
+patch /api/v1/label/<label_id>
+    consume: 
+        {
+            'name': <string:column_name>,
+            'color_id': <int:color_id>
+        }
+    will update label
+
+delete /api/v1/<card_id>/<label_id>
+    will remove label from card
+
+```
+
+### tasks
+```
+get /api/v1/<card_id>/tasks
+    will return tasks for card
+
+post /api/v1/add/task/<card_id>
+    consume: 
+        {
+            'name': <string:column_name>,
+            'done': <bool:is_done>
+        }
+    will create new tasks for card
+
+patch /api/v1/task/<task_id>
+    consume: 
+        {
+            'name': <string:column_name>,
+            'done': <bool:is_done>
+        }
+    will update pointed task
+
+delete /api/v1/task/<task_id>
+    will remove pointed task
+
+```
+
+
+
+
+
 ```
