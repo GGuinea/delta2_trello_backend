@@ -33,6 +33,11 @@ Rails.application.routes.draw do
       delete "/label/:id", to: "labels#remove_label_from_board"
       patch "/label/:id", to: "labels#update_label"
       delete "/:card_id/:label_id", to: "labels#remove_label"
+      resources :tasks
+      get "/:card_id/tasks", to: "tasks#get_tasks_for_card"
+      post "/add/task/:card_id", to: "tasks#add_to_card"
+      patch "/task/:id", to: "tasks#update_task"
+      delete "/task/:id", to: "tasks#remove_task"
     end
   end
 end
