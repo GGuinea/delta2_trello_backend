@@ -103,7 +103,7 @@ module Api
           only: [:id, :username, :email]
         }},
         include: {labels: {
-          only: [:id, :name, :color_id, :labelable_id]
+          only: [:id, :name, :color_id]
         }}), status: :ok
       else
         render :nothing => true, status: :not_found 
@@ -119,7 +119,8 @@ module Api
     def board_params
       params.permit(
         :name,
-        :description
+        :description,
+        :backgroud_id
       )
     end
 
