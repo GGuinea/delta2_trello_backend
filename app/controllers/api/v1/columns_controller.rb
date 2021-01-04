@@ -21,7 +21,7 @@ module Api
     def get_columns_for_board
       @board = Board.find_by(id: params[:board_id])
       @columns = @board.columns
-      render json: @columns.as_json(include: {cards: {:include: :tasks}}, include: :labels), status: :ok
+      render json: @columns.as_json(include: {cards: {include: :tasks}}, include: :labels), status: :ok
     end
 
     def update_column
