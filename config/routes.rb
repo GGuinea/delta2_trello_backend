@@ -37,7 +37,7 @@ Rails.application.routes.draw do
       get "/:card_id/tasks", to: "tasks#get_tasks_for_card"
       post "/add/task/:card_id", to: "tasks#add_to_card"
       patch "/task/:id", to: "tasks#update_task"
-      delete "/task/:id", to: "tasks#remove_task"
+      delete "/remove/task/:id", to: "tasks#remove_task"
     end
   end
 end
