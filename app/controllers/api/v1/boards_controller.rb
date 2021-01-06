@@ -108,7 +108,7 @@ module Api
           only: [:id, :username, :email]
         }},
         include: {labels: {
-          only: [:id, :name, :color_id]
+          only: [:id, :name, :color]
         }}), status: :ok
       else
         render :nothing => true, status: :not_found 
