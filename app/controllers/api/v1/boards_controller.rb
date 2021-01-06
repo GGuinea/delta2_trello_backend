@@ -125,7 +125,7 @@ module Api
       params.permit(
         :name,
         :description,
-        :backgroud_id
+        :background_id
       )
     end
 
