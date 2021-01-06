@@ -35,7 +35,7 @@ module Api
     def get_cards_for_column
       @column  = Column.find_by(id: params[:column_id])
       @cards = @column.cards
-      render json: @cards.as_json(include: :tasks), status: :ok
+      render json: @cards.as_json(include: [:tasks, :labels] ), status: :ok
     end
 
     def card_params 
