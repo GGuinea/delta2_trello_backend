@@ -65,7 +65,7 @@ module Api
     def label_params
       params.permit(
         :name,
-        :color_id,
+        :color,
       )
     end
 

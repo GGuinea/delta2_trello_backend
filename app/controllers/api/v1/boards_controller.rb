@@ -14,7 +14,12 @@ module Api
       #@board = Board.new(board_params)
       @board = @user.boards.create(board_params)
       if @board.save
-        render json: @board, status: :created
+        @board.labels.create(name: "", color: "red")
+        @board.labels.create(name: "", color: "green")
+        @board.labels.create(name: "", color: "blue")
+        @board.labels.create(name: "", color: "yellow")
+        @board.labels.create(name: "", color: "orange")
+        render json: @board.as_json(include: :labels), status: :created
       else
         render json: @board.errors.full_messages, status: :unprocessable_entity
       end
