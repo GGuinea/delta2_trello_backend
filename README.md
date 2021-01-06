@@ -56,7 +56,7 @@ header:
             'name': <new-name>
             or/and
             'description': <description>
-            'backgroud_id': <int:backgroud_id>
+            'background_id': <int:background_id>
         }
     produce:
         updated board
@@ -144,7 +144,7 @@ patch /api/v1/label/<label_id>
     consume: 
         {
             'name': <string:column_name>,
-            'color_id': <int:color_id>
+            'color': <string:color>
         }
     will update label
 
