@@ -19,6 +19,7 @@ module Api
         @board.labels.create(name: "", color: "blue")
         @board.labels.create(name: "", color: "yellow")
         @board.labels.create(name: "", color: "orange")
+        @board.labels.create(name: "", color: "purple")
         render json: @board.as_json(include: :labels), status: :created
       else
         render json: @board.errors.full_messages, status: :unprocessable_entity
