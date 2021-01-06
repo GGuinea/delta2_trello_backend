@@ -7,7 +7,7 @@ module Api
       @column = Column.find_by(id: params[:column_id])
       @card = @column.cards.create(card_params)
       if @card.save
-        render json: @card, status: :created
+        render json: @card.as_json(include: :labels), status: :created
       else
         render json: @card.errors_full_message, status: :unprocessable_entity
       end
