@@ -23,7 +23,7 @@ module Api
     end
 
     def update_label
-      @lable = Label.find_by(id: params[:id])
+      @label = Label.find_by(id: params[:id])
       if @label.update_attributes(label_params)
         render json: @label, status: :accepted
       else
