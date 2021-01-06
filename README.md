@@ -130,7 +130,7 @@ post /api/v1/<board_id>/label
     consume: 
         {
             'name': <string:column_name>,
-            'color_id': <int:color_id>
+            'color': <string:color>
         }
     will create label for whole board
 

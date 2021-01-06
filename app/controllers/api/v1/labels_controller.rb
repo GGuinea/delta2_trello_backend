@@ -3,7 +3,6 @@ module Api
   class LabelsController < ApplicationController
     before_action :authorized
 
-    #All available labels in the board
     def create_for_board
       @board = Board.find_by(id: params[:board_id])
       @label = @board.labels.create(label_params)
@@ -11,6 +10,15 @@ module Api
         render json: @label, status: :created
       else
         render json: @label.errors.full_messages, status: :unprocessable_entity
+      end
+    end
+
+    def get_labels_for_board
+      @board = Board.find_by(id: params[:board_id])
+      if @board
+        render json: @board.labels, status: :created
+      else
+        render json: @board.errors.full_messages, status: :unprocessable_entity
       end
     end
 

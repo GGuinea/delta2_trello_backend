@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       patch "/card/:id", to: "cards#update_card"
       delete "/card/:id", to: "cards#remove_card"
       resources :labels
+      get "/get/:board_id/labels", to: "labels#get_labels_for_board"
       post "/:board_id/label", to: "labels#create_for_board"
       post "/:card_id/:label_id", to: "labels#add_label_to_card"
       delete "/label/:id", to: "labels#remove_label_from_board"
